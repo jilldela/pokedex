@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { requestAllPokemon } from '../../actions/pokemon_actions';
 import PokemonIndex from './pokemon_index';
+import selectAllPokemon from '../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
-  pokemon: state.pokemon
+  pokemon: selectAllPokemon(state.pokemon)
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  requestAllPokemon: () => dispatch(requestAllPokemon())
+  requestAllPokemon: () => dispatch(requestAllPokemon()),
 });
 
 export default connect(
